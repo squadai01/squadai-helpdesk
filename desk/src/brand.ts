@@ -7,7 +7,7 @@ export const PRODUCT_NAME = "SquadAI Support";
 
 // AGPL-3.0 §13: every user of this network service is offered the Corresponding Source of the version that runs.
 // (Placeholder org until the public repository exists; the image's build tag is the exact version.)
-export const SOURCE_URL = "https://github.com/<org>/squadai-helpdesk";
+export const SOURCE_URL = "https://github.com/squadai01/squadai-helpdesk";
 
 // Help pages. Upstream's documentation is Frappe's; until ours is published no help link is shown (docsUrl returns "").
 // Paths are upstream's, so pointing DOCS_BASE at a mirror of the same pages is enough.
