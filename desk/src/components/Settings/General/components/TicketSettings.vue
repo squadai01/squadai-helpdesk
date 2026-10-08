@@ -224,14 +224,17 @@
           v-if="settingsData.enableOutsideHoursBanner"
           class="flex gap-x-1 items-start justify-between"
         >
-          <p class="text-sm text-ink-gray-7 leading-5">
+          <p
+            v-if="docsUrl('/helpdesk/customization/outside-working-hours-banner')"
+            class="text-sm text-ink-gray-7 leading-5"
+          >
             {{
               __(
                 "Find out all of the variables that can be used in the content"
               )
             }}
             <a
-              href="https://docs.frappe.io/helpdesk/helpdesk/customization/outside-working-hours-banner"
+              :href="docsUrl('/helpdesk/customization/outside-working-hours-banner')"
               target="_blank"
               class="underline font-semibold"
               >{{ __("here") }}</a
@@ -258,6 +261,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import SelectDropdown from "@/components/SelectDropdown.vue";
 import { useTicketStatusStore } from "@/stores/ticketStatus";
 import { HDSettingsSymbol } from "@/types";

@@ -1,6 +1,6 @@
 <template>
   <SettingsLayoutBase
-    :description="__('Sync customers between Helpdesk and ERPNext.')"
+    :description="__('Sync customers between the support desk and ERPNext.')"
   >
     <template #title>
       <div class="flex items-center gap-2">
@@ -36,7 +36,7 @@
                 {{ __("Enable ERPNext Integration") }}
               </span>
               <span class="text-p-sm text-ink-gray-6">
-                {{ __("Sync customers between Helpdesk and ERPNext.") }}
+                {{ __("Sync customers between the support desk and ERPNext.") }}
               </span>
             </div>
           </div>
@@ -57,14 +57,7 @@
         >
           <span>
             {{ __("Install the") }}
-            <a
-              href="https://frappe.io/cloud/install"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="font-medium text-ink-gray-8 underline underline-offset-2 hover:text-ink-gray-9"
-            >
-              {{ __("ERPNext app") }}
-            </a>
+            <span class="font-medium text-ink-gray-8">{{ __("ERPNext app") }}</span>
             {{ __("to enable this integration.") }}
           </span>
         </div>
@@ -84,7 +77,7 @@
             <span class="text-p-sm text-ink-gray-6">
               {{
                 __(
-                  "New and updated customers sync automatically between Helpdesk and ERPNext."
+                  "New and updated customers sync automatically between the support desk and ERPNext."
                 )
               }}
             </span>

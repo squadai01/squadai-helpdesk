@@ -15,7 +15,8 @@
               {{ selections.parentField }} is set to</span
             >
             <DocumentationButton
-              url="https://docs.frappe.io/helpdesk/field-dependency#handling-visibility-of-child-field"
+              :url="docsUrl('/field-dependency#handling-visibility-of-child-field')"
+              v-if="docsUrl('/field-dependency#handling-visibility-of-child-field')"
               color="!text-ink-gray-6"
             />
           </div>
@@ -41,7 +42,8 @@
               {{ selections.parentField }} is set to</span
             >
             <DocumentationButton
-              url="https://docs.frappe.io/helpdesk/field-dependency#handling-if-the-child-field-is-mandatory"
+              :url="docsUrl('/field-dependency#handling-if-the-child-field-is-mandatory')"
+              v-if="docsUrl('/field-dependency#handling-if-the-child-field-is-mandatory')"
               color="!text-ink-gray-6"
             />
           </div>
@@ -62,6 +64,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import DocumentationButton from "@/components/DocumentationButton.vue";
 import MultiSelectCombobox from "@/components/frappe-ui/MultiSelectCombobox.vue";
 import { getMeta } from "@/stores/meta";

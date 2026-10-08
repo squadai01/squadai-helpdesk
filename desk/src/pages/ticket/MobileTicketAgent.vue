@@ -217,6 +217,7 @@
 </template>
 
 <script setup lang="ts">
+import { brandName } from "@/brand";
 import { __ } from "@/translation";
 import {
   Breadcrumbs,
@@ -671,7 +672,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = brandName();
 });
 </script>
 <style scoped>

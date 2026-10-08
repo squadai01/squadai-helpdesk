@@ -94,6 +94,7 @@
 </template>
 
 <script setup lang="ts">
+import { brandName } from "@/brand";
 import { LayoutHeader } from "@/components";
 import TicketCustomerSidebar from "@/components/ticket/TicketCustomerSidebar.vue";
 import { setupCustomizations } from "@/composables/formCustomisation";
@@ -384,7 +385,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   stopViewing(props.ticketId);
-  document.title = "Helpdesk";
+  document.title = brandName();
   $socket.off("helpdesk:ticket-update");
 });
 </script>

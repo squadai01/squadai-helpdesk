@@ -23,6 +23,7 @@
               <span>
                 {{ info.description }}
                 <a
+                  v-if="info.link"
                   :href="info.link"
                   target="_blank"
                   class="text-ink-blue-5 underline"
@@ -272,7 +273,7 @@ const customState = reactive<CustomEmailAccountState>(getInitialCustomState());
 
 const info = {
   description: __("To know more about setting up email accounts, click"),
-  link: "https://docs.frappe.io/erpnext/user/manual/en/email-domain",
+  link: "",
 };
 
 const deskEditUrl = computed(() => {

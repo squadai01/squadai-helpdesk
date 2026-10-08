@@ -89,7 +89,8 @@
           <div class="flex items-center justify-between">
             <FormLabel :label="__('Response')" required size="md" />
             <DocumentationButton
-              url="https://docs.frappe.io/helpdesk/saved-replies"
+              :url="docsUrl('/saved-replies')"
+              v-if="docsUrl('/saved-replies')"
             />
           </div>
           <PreviewDialog v-model="previewDialog" />
@@ -123,6 +124,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import CompactEditor from "@/components/CompactEditor.vue";
 import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import DocumentationButton from "@/components/DocumentationButton.vue";

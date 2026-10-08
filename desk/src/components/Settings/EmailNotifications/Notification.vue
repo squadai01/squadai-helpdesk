@@ -65,7 +65,10 @@
               :oninput="() => setUnsavedChanges()"
             />
             <div class="flex gap-x-1 items-start justify-between">
-              <p class="text-sm text-ink-gray-7 leading-5">
+              <p
+                v-if="props.documentationLink"
+                class="text-sm text-ink-gray-7 leading-5"
+              >
                 {{
                   __(
                     "Find out all of the variables that can be used in the content"
@@ -138,7 +141,7 @@ import UnsavedBadge from "@/components/UnsavedBadge.vue";
 const props = defineProps<{
   title: string;
   description: string;
-  documentationLink: string;
+  documentationLink?: string;
   defaultContent: string;
   onBack: () => void;
   onSubmit: (e: Event & { target: HTMLFormElement }) => void;

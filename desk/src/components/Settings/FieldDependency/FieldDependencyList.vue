@@ -11,15 +11,13 @@
       <p class="text-p-sm max-w-md text-ink-gray-6">
         {{
           __(
-            "Create field dependencies to dynamically update options based on user selections. Learn more about field dependencies"
+            "Create field dependencies to dynamically update options based on user selections."
           )
         }}
-        <a
-          href="https://docs.frappe.io/helpdesk/field-dependency"
-          target="_blank"
-          class="underline"
-          >{{ __("here.") }}</a
-        >
+        <template v-if="docsUrl('/field-dependency')">
+          {{ __("Learn more about field dependencies") }}
+          <a :href="docsUrl('/field-dependency')" target="_blank" class="underline">{{ __("here.") }}</a>
+        </template>
       </p>
     </template>
     <template #header-actions>
@@ -130,6 +128,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import {
   Avatar,
   Button,

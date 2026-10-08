@@ -20,13 +20,15 @@
           {{
             __("can see every ticket of their company and manage its contacts.")
           }}
-          {{ __("Learn more in the") }}
-          <a
-            href="https://docs.frappe.io/helpdesk/customers-contacts#update-on-permissions"
-            target="_blank"
-            class="underline"
-            >{{ __("documentation") }}</a
-          >.
+          <template v-if="docsUrl('/customers-contacts#update-on-permissions')">
+            {{ __("Learn more in the") }}
+            <a
+              :href="docsUrl('/customers-contacts#update-on-permissions')"
+              target="_blank"
+              class="underline"
+              >{{ __("documentation") }}</a
+            >.
+          </template>
         </p>
         <FormControl
           v-model="restoreOldBehaviour"
@@ -51,6 +53,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import { __ } from "@/translation";
 import { createResource, toast } from "frappe-ui";
 import { computed, ref, watch } from "vue";

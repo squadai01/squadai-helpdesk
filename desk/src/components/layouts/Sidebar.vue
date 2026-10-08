@@ -42,9 +42,9 @@
     v-model="showHelpModal"
     v-model:articles="articles"
     appName="helpdesk"
-    title="Frappe Helpdesk"
+    :title="brandName()"
     :logo="logo"
-    docsLink="https://docs.frappe.io/helpdesk"
+    :docsLink="docsUrl()"
     :afterSkip="(step: string) => capture('onboarding_step_skipped_' + step)"
     :afterSkipAll="() => capture('onboarding_steps_skipped')"
     :afterReset="(step: string) => capture('onboarding_step_reset_' + step)"
@@ -58,11 +58,11 @@
 
 <script setup lang="ts">
 import HDLogo from "@/assets/logos/HDLogo.vue";
-import { FrappeCloudIcon, InviteCustomer } from "@/components/icons";
+import { InviteCustomer } from "@/components/icons";
 import CustomerPortalPermissionBanner from "@/components/layouts/CustomerPortalPermissionBanner.vue";
 import ShortcutsModal from "@/components/modals/ShortcutsModal.vue";
 import SettingsModal from "@/components/Settings/SettingsModal.vue";
-import { confirmLoginToFrappeCloud } from "@/composables/fc";
+import { brandName, docsUrl, openSource } from "@/brand";
 import { useApps } from "@/composables/useApps";
 import { useScreenSize } from "@/composables/screen";
 import { showNewContactModal } from "@/pages/contact/dialogState";
@@ -129,6 +129,11 @@ const isFCSite = ref(window.is_fc_site);
 
 const customerPortalDropdown = computed(() => [
   {
+    icon: "lucide-code",
+    label: __("Source code"),
+    onClick: () => openSource(),
+  },
+  {
     group: __("Danger"),
     hideLabel: true,
     items: [
@@ -152,20 +157,9 @@ const agentPortalDropdown = computed(() => [
     },
   },
   {
-    icon: "lucide-life-buoy",
-    label: __("Support"),
-    onClick: () => window.open("https://t.me/frappedesk"),
-  },
-  {
-    icon: "lucide-book-open",
-    label: __("Docs"),
-    onClick: () => window.open("https://docs.frappe.io/helpdesk"),
-  },
-  {
-    label: __("Login to Frappe Cloud"),
-    icon: FrappeCloudIcon,
-    onClick: () => confirmLoginToFrappeCloud(),
-    condition: () => !isMobileView.value && window.is_fc_site,
+    icon: "lucide-code",
+    label: __("Source code"),
+    onClick: () => openSource(),
   },
   {
     label: __("Shortcuts"),
@@ -421,7 +415,7 @@ const articles = ref([
     ],
   },
   {
-    title: __("Frappe Helpdesk Mobile"),
+    title: __("SquadAI Support Mobile"),
     opened: false,
     subArticles: [
       { name: "pwa-installation", title: __("Mobile App Installation") },

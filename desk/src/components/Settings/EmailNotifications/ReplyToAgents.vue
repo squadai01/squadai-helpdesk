@@ -3,7 +3,7 @@
     v-model:content="content"
     :defaultContent="defaultContent"
     v-model:enabled="enabled"
-    documentationLink="https://docs.frappe.io/helpdesk/email-notifications#available-variables-reply-from-contact"
+    :documentationLink="docsUrl('/email-notifications#available-variables-reply-from-contact')"
     ref="compRef"
     name="reply_to_agents"
     :title="props.notification.label"
@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import { ref } from "vue";
 import Notification from "./Notification.vue";
 import { createResource, toast } from "frappe-ui";

@@ -129,8 +129,9 @@
                   )
                 }}
                 <a
+                  v-if="docsUrl('/assignment-rule')"
                   class="font-medium underline"
-                  href="https://docs.frappe.io/helpdesk/assignment-rule"
+                  :href="docsUrl('/assignment-rule')"
                   target="_blank"
                   >{{ __("Learn about conditions") }}</a
                 >
@@ -206,8 +207,9 @@
                   )
                 }}
                 <a
+                  v-if="docsUrl('/assignment-rule')"
                   class="font-medium underline"
-                  href="https://docs.frappe.io/helpdesk/assignment-rule"
+                  :href="docsUrl('/assignment-rule')"
                   target="_blank"
                   >{{ __("Learn about conditions") }}</a
                 >
@@ -311,6 +313,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {
   Badge,

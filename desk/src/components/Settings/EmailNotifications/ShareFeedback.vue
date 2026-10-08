@@ -7,7 +7,7 @@
     v-model:content="content"
     :defaultContent="defaultContent"
     v-model:enabled="enabled"
-    documentationLink="https://docs.frappe.io/helpdesk/email-notifications#available-variables-share-feedback"
+    :documentationLink="docsUrl('/email-notifications#available-variables-share-feedback')"
     :onBack="props.onBack"
     :onSubmit="onSubmit"
     :onGetDataSuccess="onGetDataSuccess"
@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { docsUrl } from "@/brand";
 import { computed, ref } from "vue";
 import Notification from "./Notification.vue";
 import { createResource, toast } from "frappe-ui";
