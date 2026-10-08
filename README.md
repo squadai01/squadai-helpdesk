@@ -1,3 +1,27 @@
+# SquadAI Support — a rebranded Frappe Helpdesk; source per AGPL-3.0
+
+**SquadAI Support** is [Frappe Helpdesk](https://github.com/frappe/helpdesk) with its agent and customer-portal front end
+rebranded, as run by SquadAI for its clients. It is a *modified version* of Frappe Helpdesk under the GNU Affero General
+Public License v3.0 (see `LICENSE`); this repository is its Corresponding Source (AGPL-3.0 §13), offered to every user through
+the « Source code » entry of the app's menu.
+
+- **Based on:** Frappe Helpdesk `v1.30.1` (commit `1c3361cc0019deec6f84035a9352270b4e4eb5cb`, branch `main`), © Frappe
+  Technologies Pvt. Ltd. and contributors. Upstream's copyright and licence notices are kept unchanged.
+- **Modified by SquadAI on 2026-10-08** (AGPL-3.0 §5a) — front end (`desk/`) only; the Python app is unchanged:
+  - `desk/src/brand.ts` (new): product name fallback, the « Source code » link, help links switch (`DOCS_BASE`).
+  - Page title and home-screen name come from each site's *HD Settings → Brand name* (`desk/index.html`), as do the logo and
+    favicon in the app — one build serves every client site with its own branding.
+  - Help links to upstream's documentation are hidden until ours are published; the Frappe Cloud login, upstream's support
+    chat and the Frappe Mail provider are not offered; wording that named the product now says « the support desk ».
+  - PWA manifest, icons and splash screens: SquadAI « SQ » mark (`desk/vite.config.js`, `desk/public/`).
+  - Full list: `git diff 1c3361cc0019deec6f84035a9352270b4e4eb5cb --stat`.
+- **Trademarks:** « Frappe » and « Helpdesk » marks and logos belong to Frappe Technologies; SquadAI Support is not affiliated
+  with or endorsed by Frappe. The licence covers the code, not the marks, hence the rebrand.
+- **Build:** as upstream — a Frappe bench `get-app` of this repository at a tag, then `bench build --app helpdesk`
+  (Vite; `desk/yarn.lock` pins the front-end dependencies). Depends on `telephony` like upstream.
+
+---
+
 <div align="center" markdown="1">
 
 <img src=".github/hd-logo.svg" alt="Frappe Helpdesk logo" width="80"/>
